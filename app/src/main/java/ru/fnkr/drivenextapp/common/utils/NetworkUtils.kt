@@ -1,4 +1,4 @@
-package ru.fnkr.drivenextapp.utils
+package ru.fnkr.drivenextapp.common.utils
 
 import android.content.Context
 import android.content.Intent

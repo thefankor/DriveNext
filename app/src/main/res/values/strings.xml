@@ -73,4 +73,5 @@
     <string name="title_activity_sign_up3">SignUp3Activity</string>
     <string name="title_activity_sign_up_success">SignUpSuccessActivity</string>
     <string name="title_activity_no_connection">NoConnectionActivity</string>
+    <string name="title_activity_login1">Login1Activity</string>
 </resources>

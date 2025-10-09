@@ -84,15 +84,6 @@
 
         </com.google.android.material.textfield.TextInputLayout>
 
-        <TextView
-            android:id="@+id/twLoginErrorMsg"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Это поле является обязательным"
-            android:textSize="14sp"
-            android:textColor="@color/red"
-            android:layout_marginTop="4dp"
-            tools:visibility="gone"/>
     </LinearLayout>
 
     <LinearLayout
@@ -145,16 +136,6 @@
                 android:textColorHint="@color/border" />
 
         </com.google.android.material.textfield.TextInputLayout>
-
-        <TextView
-            android:id="@+id/twPassErrorMsg"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Это поле является обязательным"
-            android:textSize="14sp"
-            android:textColor="@color/red"
-            android:layout_marginTop="4dp"
-            tools:visibility="gone"/>
 
     </LinearLayout>
 
