@@ -1,0 +1,75 @@
+<resources>
+    <string name="app_name">DriveNext</string>
+    <string name="img_connection_error">Connection Error</string>
+    <string name="not_connection_title">Нет подключения \nк интернету</string>
+    <string name="not_connection_description">Проверьте подключение и повторите попытку</string>
+    <string name="button_try_again">Повторить попытку</string>
+
+    <string name="loading_description">Поможем найти твою следующую поездку</string>
+    <string name="app_loading">App loading</string>
+    <string name="skip">Пропустить</string>
+    <string name="onboarding_step_1_img">Onboarding</string>
+
+    <string name="onb1_title">Аренда автомобилей</string>
+    <string name="obn1_description">Открой для себя удобный и доступный способ передвижения</string>
+
+    <string name="onb2_title">Безопасно и удобно</string>
+    <string name="obn2_description">Арендуй автомобиль и наслаждайся его удобством</string>
+
+    <string name="onb3_title">Лучшие предложения</string>
+    <string name="obn3_description">Выбирай понравившееся среди сотен доступных автомобилей</string>
+
+    <string name="next">Далее</string>
+    <string name="go">Поехали</string>
+    <string name="getting_started_description">Поможем найти твою следующую поездку</string>
+    <string name="login">Войти</string>
+    <string name="signup">Зарегестрироваться</string>
+    <string name="login_google">Войти через Google</string>
+    <string name="forget_password">Забыли пароль?</string>
+    <string name="enter_password">Введите пароль</string>
+    <string name="password">Пароль</string>
+    <string name="enter_email">Почта</string>
+    <string name="email">Электронная почта</string>
+    <string name="login_description">Пожалуйста, введите свои данные</string>
+    <string name="login_title">Войдите в аккаунт</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="previous">Previous</string>
+
+    <string name="title_activity_loading">LoadingActivity</string>
+    <string name="title_activity_onboarding">OnboardingActivity</string>
+    <string name="lorem_ipsum">lorem_ipsum</string>
+    <string name="title_activity_text">TextActivity</string>
+    <string name="title_activity_test">TestActivity</string>
+    <string name="need_policy_confirm">Подтвердите согласие с политикой конфиденциальности</string>
+    <string name="policy">Я согласен с условиями обслуживания и политикой конфиденциальности</string>
+    <string name="repeat_password">Повторите пароль</string>
+    <string name="create_password">Придумайте пароль</string>
+    <string name="create_account">Создать аккаунт</string>
+    <string name="second_name">Фамилия</string>
+    <string name="enter_second_name">Введите фамилию</string>
+    <string name="first_name">Имя</string>
+    <string name="enter_first_name">Введите имя</string>
+    <string name="enter_middle_name">Введите отчество</string>
+    <string name="middle_name">Отчество</string>
+    <string name="enter_birth_day">DD/MM/YYYY</string>
+    <string name="birth_day">Дата рождения</string>
+    <string name="sex">Пол</string>
+    <string name="man">Мужской</string>
+    <string name="woman">Женский</string>
+    <string name="photo_description">Добавление фотографии поможет владельцам и арендаторам узнать друг друга, когда они будут забирать машину</string>
+    <string name="driver_license_number">Номер водительского удостоверения</string>
+    <string name="enter_drivers_license">0000000000</string>
+    <string name="driver_license_date">Дата выдачи</string>
+    <string name="driver_license_upload">Загрузите фото водительского удостоверения</string>
+    <string name="upload_photo">Загрузить фото</string>
+    <string name="upload_passport">Загрузите фото паспорта</string>
+    <string name="using_with_enjoy">Пользуйтесь с удовольствием</string>
+    <string name="congratulations">Поздравляем</string>
+    <string name="congratulations_description">Вы успешно зарегистрировались.\nОбработка ваших персональных данных займет около двух часов. Спасибо за ожидание.</string>
+    <string name="title_activity_sign_up1">SignUp1Activity</string>
+    <string name="title_activity_sign_up2">SignUp2Activity</string>
+    <string name="title_activity_sign_up3">SignUp3Activity</string>
+    <string name="title_activity_sign_up_success">SignUpSuccessActivity</string>
+</resources>
