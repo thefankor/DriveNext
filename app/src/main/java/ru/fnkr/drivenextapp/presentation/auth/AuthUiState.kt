@@ -17,3 +17,13 @@ data class SignUpUiState(
     val isLoading: Boolean = false,
     val isAuthorized: Boolean = false
 )
+
+data class SignUpSecondUiState(
+    val lastNameError: String? = null,
+    val firstNameError: String? = null,
+    val middleNameError: String? = null,
+    val birthDayError: String? = null,
+    val generalError: String? = null,
+    val isLoading: Boolean = false,
+    val isAuthorized: Boolean = false
+)

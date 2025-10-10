@@ -10,6 +10,14 @@ data class SignUpValidationResult(
     val policyError: String? = null,
 )
 
+data class SignUpValidationSecondResult(
+    val valid: Boolean,
+    val lastNameError: String? = null,
+    val firstNameError: String? = null,
+    val middleNameError: String? = null,
+    val birthDayError: String? = null,
+)
+
 class ValidateSignUpFields {
     operator fun invoke(email: String, password1: String, password2: String, policyChecked: Boolean): SignUpValidationResult {
         val e = Validators.email(email)
@@ -26,6 +34,24 @@ class ValidateSignUpFields {
             pass1Error = p1,
             pass2Error = pass2ErrToShow,
             policyError = policy
+        )
+    }
+}
+
+
+class ValidateSignUpSecondFields {
+    operator fun invoke(lastName: String, firstName: String, middleName: String, birthDay: String): SignUpValidationSecondResult {
+        val lastNameError = Validators.required(lastName)
+        val firstNameError  = Validators.required(firstName)
+        val middleNameError  = Validators.required(middleName)
+        val birthDayError  = Validators.required(birthDay)
+
+        return SignUpValidationSecondResult(
+            valid = lastNameError == null && firstNameError == null && middleNameError == null && birthDayError == null,
+            lastNameError = lastNameError,
+            firstNameError = firstNameError,
+            middleNameError = middleNameError,
+            birthDayError = birthDayError,
         )
     }
 }

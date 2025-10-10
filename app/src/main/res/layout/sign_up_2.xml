@@ -58,7 +58,7 @@
                 android:textSize="14sp" />
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/tiSecondName"
+                android:id="@+id/ilLastName"
                 style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -75,7 +75,7 @@
                 app:hintEnabled="false">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/secondNameEditText"
+                    android:id="@+id/ilEditLastName"
                     android:layout_width="match_parent"
                     android:layout_height="44dp"
                     android:fontFamily="@font/montserrat_regular"
@@ -83,7 +83,7 @@
                     android:inputType="textEmailAddress"
                     android:paddingHorizontal="14dp"
                     android:paddingVertical="0dp"
-                    android:textColor="@color/border"
+                    android:textColor="@color/text"
                     android:textColorHint="@color/border"
                     android:textSize="16sp" />
 
@@ -108,7 +108,7 @@
                     android:textSize="14sp" />
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/tiFirstName"
+                    android:id="@+id/ilFirstName"
                     style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -125,7 +125,7 @@
                     app:hintEnabled="false">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/firstNameEditText"
+                        android:id="@+id/ilEditFirstName"
                         android:layout_width="match_parent"
                         android:layout_height="44dp"
                         android:fontFamily="@font/montserrat_regular"
@@ -133,7 +133,7 @@
                         android:inputType="textEmailAddress"
                         android:paddingHorizontal="14dp"
                         android:paddingVertical="0dp"
-                        android:textColor="@color/border"
+                        android:textColor="@color/text"
                         android:textColorHint="@color/border"
                         android:textSize="16sp" />
 
@@ -158,7 +158,7 @@
                     android:textSize="14sp" />
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/tiMiddleName"
+                    android:id="@+id/ilMiddleName"
                     style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -175,7 +175,7 @@
                     app:hintEnabled="false">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/middleNameEditText"
+                        android:id="@+id/ilEditMiddleName"
                         android:layout_width="match_parent"
                         android:layout_height="44dp"
                         android:fontFamily="@font/montserrat_regular"
@@ -183,7 +183,7 @@
                         android:inputType="textEmailAddress"
                         android:paddingHorizontal="14dp"
                         android:paddingVertical="0dp"
-                        android:textColor="@color/border"
+                        android:textColor="@color/text"
                         android:textColorHint="@color/border"
                         android:textSize="16sp" />
 
@@ -208,7 +208,7 @@
                     android:textSize="14sp" />
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/tiBirthDay"
+                    android:id="@+id/ilBirthDay"
                     style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -227,7 +227,7 @@
                     app:hintEnabled="false">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/birthDayEditText"
+                    android:id="@+id/ilEditBirthDay"
                     android:layout_width="match_parent"
                     android:layout_height="44dp"
                     android:paddingVertical="0dp"
@@ -237,7 +237,7 @@
                     android:clickable="true"
                     android:inputType="none"
                     android:paddingHorizontal="14dp"
-                    android:textColor="@color/border"
+                    android:textColor="@color/text"
                     android:textColorHint="@color/light_grey"
                     android:textSize="16sp" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -281,8 +281,7 @@
                     android:textSize="16sp"
                     android:fontFamily="@font/montserrat_regular"
                     android:textColor="@color/text"
-                    app:strokeWidth="1dp"
-                    app:buttonTint="@color/light_grey"/>
+                    app:strokeWidth="1dp" />
 
                 <com.google.android.material.radiobutton.MaterialRadioButton
                     android:id="@+id/radioWoman"
@@ -294,8 +293,7 @@
                     android:fontFamily="@font/montserrat_regular"
                     android:checked="true"
                     android:textColor="@color/text"
-                    app:strokeWidth="1dp"
-                    app:buttonTint="@color/purple"/>
+                    app:strokeWidth="1dp" />
             </RadioGroup>
         </LinearLayout>
 

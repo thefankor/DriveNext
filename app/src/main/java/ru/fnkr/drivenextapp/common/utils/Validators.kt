@@ -24,4 +24,10 @@ object Validators {
             else -> null
         }
 
+    fun required(v: String): String? =
+        when {
+            v.isBlank() -> "Это поле является обязательным"
+            else -> null
+        }
+
 }
