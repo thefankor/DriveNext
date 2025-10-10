@@ -12,5 +12,14 @@ class AuthRepositoryImpl : AuthRepository {
             AppResult.Ok(User("1", email))
         else AppResult.Err("Неверный email или пароль")
     }
+
+    override suspend fun checkUserExists(email: String): AppResult<User> {
+        delay(500)
+        return if (email != "demo@mail.com")
+            AppResult.Ok(User("1", email))
+        else AppResult.Err("Пользователь с таким адресом электронной почты уже существует")
+    }
+
+
 }
 

@@ -1,4 +1,4 @@
-package ru.fnkr.drivenextapp.presentation.auth
+package ru.fnkr.drivenextapp.presentation.auth.login
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -10,6 +10,7 @@ import ru.fnkr.drivenextapp.common.utils.AppResult
 import ru.fnkr.drivenextapp.data.auth.AuthRepositoryImpl
 import ru.fnkr.drivenextapp.domain.usecase.SignInUseCase
 import ru.fnkr.drivenextapp.domain.usecase.ValidateLoginFields
+import ru.fnkr.drivenextapp.presentation.auth.AuthUiState
 
 class LoginViewModel : ViewModel() {
 

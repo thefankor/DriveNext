@@ -1,4 +1,4 @@
-package ru.fnkr.drivenextapp.presentation.auth.ui.theme
+package ru.fnkr.drivenextapp.presentation.auth.login.theme
 
 import androidx.compose.ui.graphics.Color
 

@@ -6,7 +6,7 @@ object Validators {
     fun email(v: String): String? =
         when {
             v.isBlank() -> "Это поле является обязательным"
-            !Patterns.EMAIL_ADDRESS.matcher(v).matches() -> "Некорректный email"
+            !Patterns.EMAIL_ADDRESS.matcher(v).matches() -> "Введите корректный адрес электронной почты."
             else -> null
         }
 
@@ -16,4 +16,12 @@ object Validators {
             v.length < 8 -> "Минимум 8 символов"
             else -> null
         }
+
+    fun passwordAgain(password1: String, password2: String): String? =
+        when {
+            password2.isBlank() -> "Повторите пароль"
+            password1 != password2 -> "Пароли не совпадают"
+            else -> null
+        }
+
 }

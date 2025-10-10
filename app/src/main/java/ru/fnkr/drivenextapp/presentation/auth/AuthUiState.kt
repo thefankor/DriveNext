@@ -7,3 +7,13 @@ data class AuthUiState(
     val isLoading: Boolean = false,
     val isAuthorized: Boolean = false
 )
+
+data class SignUpUiState(
+    val emailError: String? = null,
+    val pass1Error: String? = null,
+    val pass2Error: String? = null,
+    val policyError: String? = null,
+    val generalError: String? = null,
+    val isLoading: Boolean = false,
+    val isAuthorized: Boolean = false
+)

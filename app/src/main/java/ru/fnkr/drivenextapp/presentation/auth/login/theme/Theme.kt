@@ -1,6 +1,5 @@
-package ru.fnkr.drivenextapp.presentation.auth.ui.theme
+package ru.fnkr.drivenextapp.presentation.auth.login.theme
 
-import android.app.Activity
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme

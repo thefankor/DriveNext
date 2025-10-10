@@ -19,22 +19,22 @@
             android:label="@string/title_activity_no_connection"
             android:theme="@style/Theme.DriveNextApp" />
         <activity
-            android:name=".SignUpSuccessActivity"
+            android:name=".presentation.auth.signup.SignUpSuccessActivity"
             android:exported="false"
             android:label="@string/title_activity_sign_up_success"
             android:theme="@style/Theme.DriveNextApp" />
         <activity
-            android:name=".SignUp3Activity"
+            android:name=".presentation.auth.signup.SignUp3Activity"
             android:exported="false"
             android:label="@string/title_activity_sign_up3"
             android:theme="@style/Theme.DriveNextApp" />
         <activity
-            android:name=".SignUp2Activity"
+            android:name=".presentation.auth.signup.SignUp2Activity"
             android:exported="false"
             android:label="@string/title_activity_sign_up2"
             android:theme="@style/Theme.DriveNextApp" />
         <activity
-            android:name=".SignUp1Activity"
+            android:name=".presentation.auth.signup.SignUp1Activity"
             android:exported="false"
             android:label="@string/title_activity_sign_up1"
             android:theme="@style/Theme.DriveNextApp" />
@@ -65,7 +65,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".presentation.auth.LoginActivity"
+            android:name=".presentation.auth.login.LoginActivity"
             android:exported="false"
             android:theme="@style/Theme.DriveNextApp" />
         <activity

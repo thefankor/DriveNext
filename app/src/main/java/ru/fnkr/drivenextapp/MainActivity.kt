@@ -5,7 +5,8 @@ import android.os.Bundle
 
 import androidx.appcompat.app.AppCompatActivity
 import ru.fnkr.drivenextapp.databinding.ActivityGettingStartedBinding
-import ru.fnkr.drivenextapp.presentation.auth.LoginActivity
+import ru.fnkr.drivenextapp.presentation.auth.login.LoginActivity
+import ru.fnkr.drivenextapp.presentation.auth.signup.SignUp1Activity
 
 
 class MainActivity : AppCompatActivity() {

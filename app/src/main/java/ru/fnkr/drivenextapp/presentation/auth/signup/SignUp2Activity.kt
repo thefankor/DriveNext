@@ -1,26 +1,26 @@
-package ru.fnkr.drivenextapp
+package ru.fnkr.drivenextapp.presentation.auth.signup
 
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 
-import ru.fnkr.drivenextapp.databinding.SignUp3Binding
+import ru.fnkr.drivenextapp.databinding.SignUp2Binding
 
-class SignUp3Activity : AppCompatActivity() {
-    private lateinit var binding: SignUp3Binding
+class SignUp2Activity : AppCompatActivity() {
+    private lateinit var binding: SignUp2Binding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = SignUp3Binding.inflate(layoutInflater)
+        binding = SignUp2Binding.inflate(layoutInflater)
         setContentView(binding.root)
 
         binding.btnContinue.setOnClickListener {
-            val intent = Intent(this@SignUp3Activity, SignUpSuccessActivity::class.java)
+            val intent = Intent(this@SignUp2Activity, SignUp3Activity::class.java)
             startActivity(intent)
         }
 
         binding.imgBack.setOnClickListener {
-            val intent = Intent(this@SignUp3Activity, SignUp2Activity::class.java)
+            val intent =  Intent(this@SignUp2Activity, SignUp1Activity::class.java)
             startActivity(intent)
         }
     }

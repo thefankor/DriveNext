@@ -74,4 +74,5 @@
     <string name="title_activity_sign_up_success">SignUpSuccessActivity</string>
     <string name="title_activity_no_connection">NoConnectionActivity</string>
     <string name="title_activity_login1">Login1Activity</string>
+    <string name="need_policy">Вы должны принять политику конфиденциальности</string>
 </resources>

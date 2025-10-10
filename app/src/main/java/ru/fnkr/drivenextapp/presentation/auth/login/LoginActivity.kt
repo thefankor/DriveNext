@@ -1,4 +1,4 @@
-package ru.fnkr.drivenextapp.presentation.auth
+package ru.fnkr.drivenextapp.presentation.auth.login
 
 import android.content.Intent
 import android.os.Bundle
@@ -10,7 +10,7 @@ import androidx.lifecycle.repeatOnLifecycle
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.launch
 import ru.fnkr.drivenextapp.MainActivity
-import ru.fnkr.drivenextapp.SignUp1Activity
+import ru.fnkr.drivenextapp.presentation.auth.signup.SignUp1Activity
 import ru.fnkr.drivenextapp.databinding.ActivityLoginBinding
 
 class LoginActivity : AppCompatActivity() {

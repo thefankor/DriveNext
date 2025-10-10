@@ -1,4 +1,4 @@
-package ru.fnkr.drivenextapp
+package ru.fnkr.drivenextapp.presentation.auth.signup
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
