@@ -27,3 +27,11 @@ data class SignUpSecondUiState(
     val isLoading: Boolean = false,
     val isAuthorized: Boolean = false
 )
+
+data class SignUpThirdUiState(
+    val licenseNumberError: String? = null,
+    val licenseDateError: String? = null,
+    val generalError: String? = null,
+    val isLoading: Boolean = false,
+    val isAuthorized: Boolean = false
+)

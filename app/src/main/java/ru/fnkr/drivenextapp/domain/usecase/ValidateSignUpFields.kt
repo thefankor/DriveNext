@@ -18,6 +18,12 @@ data class SignUpValidationSecondResult(
     val birthDayError: String? = null,
 )
 
+data class SignUpValidationThirdResult(
+    val valid: Boolean,
+    val licenseNumberError: String? = null,
+    val licenseDateError: String? = null,
+)
+
 class ValidateSignUpFields {
     operator fun invoke(email: String, password1: String, password2: String, policyChecked: Boolean): SignUpValidationResult {
         val e = Validators.email(email)
@@ -40,11 +46,16 @@ class ValidateSignUpFields {
 
 
 class ValidateSignUpSecondFields {
-    operator fun invoke(lastName: String, firstName: String, middleName: String, birthDay: String): SignUpValidationSecondResult {
+    operator fun invoke(
+        lastName: String,
+        firstName: String,
+        middleName: String,
+        birthDay: String
+    ): SignUpValidationSecondResult {
         val lastNameError = Validators.required(lastName)
-        val firstNameError  = Validators.required(firstName)
-        val middleNameError  = Validators.required(middleName)
-        val birthDayError  = Validators.required(birthDay)
+        val firstNameError = Validators.required(firstName)
+        val middleNameError = Validators.required(middleName)
+        val birthDayError = Validators.required(birthDay)
 
         return SignUpValidationSecondResult(
             valid = lastNameError == null && firstNameError == null && middleNameError == null && birthDayError == null,
@@ -52,6 +63,19 @@ class ValidateSignUpSecondFields {
             firstNameError = firstNameError,
             middleNameError = middleNameError,
             birthDayError = birthDayError,
+        )
+    }
+}
+
+class ValidateSignUpThirdFields {
+    operator fun invoke(licenseNumber: String, licenseDate: String): SignUpValidationThirdResult {
+        val licenseNumberError = Validators.required(licenseNumber)
+        val licenseDateError  = Validators.required(licenseDate)
+
+        return SignUpValidationThirdResult(
+            valid = licenseNumberError == null && licenseDateError == null,
+            licenseNumberError = licenseNumberError,
+            licenseDateError = licenseDateError,
         )
     }
 }

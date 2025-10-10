@@ -12,4 +12,9 @@ data class SignUpData(
     val middleName: String? = null,
     val birthDate: String? = null,
     val sex: String? = "female",
+    val licenseNumber: String? = null,
+    val licenseDate: String? = null,
+    val profilePhotoUri: String? = null,
+    val passportPhotoUri: String? = null,
+    val licensePhotoUri: String? = null,
 ) : Serializable

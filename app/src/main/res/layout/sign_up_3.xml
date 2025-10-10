@@ -101,7 +101,7 @@
             app:boxCornerRadiusBottomEnd="8dp">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/licenseEditText"
+                android:id="@+id/ilEditLicense"
                 android:layout_width="match_parent"
                 android:layout_height="44dp"
                 android:paddingHorizontal="14dp"
@@ -110,7 +110,7 @@
                 android:inputType="text"
                 android:fontFamily="@font/montserrat_regular"
                 android:textSize="16sp"
-                android:textColor="@color/light_grey"
+                android:textColor="@color/text"
                 android:textColorHint="@color/light_grey" />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -146,16 +146,17 @@
             app:startIconTint="@color/light_grey">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/dateEditText"
+                android:id="@+id/ilEditDate"
                 android:layout_width="match_parent"
                 android:layout_height="44dp"
                 android:paddingHorizontal="14dp"
                 android:paddingVertical="0dp"
                 android:hint="@string/enter_birth_day"
-                android:inputType="text"
+                android:inputType="none"
+                android:focusable="false"
                 android:fontFamily="@font/montserrat_regular"
                 android:textSize="16sp"
-                android:textColor="@color/light_grey"
+                android:textColor="@color/text"
                 android:textColorHint="@color/light_grey" />
 
         </com.google.android.material.textfield.TextInputLayout>

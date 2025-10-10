@@ -12,6 +12,7 @@ import androidx.lifecycle.repeatOnLifecycle
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.launch
 import ru.fnkr.drivenextapp.R
+import ru.fnkr.drivenextapp.common.utils.launchNoConnectionIfNeeded
 
 import ru.fnkr.drivenextapp.databinding.SignUp2Binding
 import ru.fnkr.drivenextapp.presentation.auth.common.SignUpData
@@ -47,7 +48,13 @@ class SignUp2Activity : AppCompatActivity() {
         binding.ilEditMiddleName.setText(data.middleName.orEmpty())
         binding.ilEditBirthDay.setText(data.birthDate.orEmpty())
 
+        when (data.sex.orEmpty()) {
+            "male" -> binding.radioMan.isChecked = true
+            "female" -> binding.radioWoman.isChecked = true
+        }
+
         binding.btnContinue.setOnClickListener {
+            launchNoConnectionIfNeeded()
             val lastName = binding.ilEditLastName.text?.toString().orEmpty()
             val firstName = binding.ilEditFirstName.text?.toString().orEmpty()
             val middleName = binding.ilEditMiddleName.text?.toString().orEmpty()
@@ -68,20 +75,7 @@ class SignUp2Activity : AppCompatActivity() {
                         Snackbar.make(binding.root, s.generalError, Snackbar.LENGTH_SHORT).show()
 
                     if (s.isAuthorized) {
-                        val selectedId = binding.radioGroupSex.checkedRadioButtonId
-                        val sex = when (selectedId) {
-                            R.id.radioMan -> "male"
-                            R.id.radioWoman -> "female"
-                            else -> "male"
-                        }
-
-                        data = data.copy(
-                            lastName = binding.ilEditLastName.text?.toString(),
-                            firstName = binding.ilEditFirstName.text?.toString(),
-                            middleName = binding.ilEditMiddleName.text?.toString(),
-                            birthDate = binding.ilEditBirthDay.text?.toString(),
-                            sex = sex,
-                        )
+                        saveData()
                         val i = Intent(this@SignUp2Activity, SignUp3Activity::class.java)
                             .putExtra(EXTRA_SIGN_UP_DATA, data)
                         startActivity(i)
@@ -91,6 +85,7 @@ class SignUp2Activity : AppCompatActivity() {
         }
 
         binding.imgBack.setOnClickListener {
+            saveData()
             val i = Intent(this@SignUp2Activity, SignUp1Activity::class.java)
                 .putExtra(EXTRA_SIGN_UP_DATA, data)
             startActivity(i)
@@ -121,6 +116,23 @@ class SignUp2Activity : AppCompatActivity() {
         )
 
         datePicker.show()
+    }
+
+    private fun saveData() {
+        val selectedId = binding.radioGroupSex.checkedRadioButtonId
+        val sex = when (selectedId) {
+            R.id.radioMan -> "male"
+            R.id.radioWoman -> "female"
+            else -> "male"
+        }
+
+        data = data.copy(
+            lastName = binding.ilEditLastName.text?.toString(),
+            firstName = binding.ilEditFirstName.text?.toString(),
+            middleName = binding.ilEditMiddleName.text?.toString(),
+            birthDate = binding.ilEditBirthDay.text?.toString(),
+            sex = sex,
+        )
     }
 
 }

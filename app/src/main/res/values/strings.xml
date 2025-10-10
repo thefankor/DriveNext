@@ -75,4 +75,14 @@
     <string name="title_activity_no_connection">NoConnectionActivity</string>
     <string name="title_activity_login1">Login1Activity</string>
     <string name="need_policy">Вы должны принять политику конфиденциальности</string>
+
+    <string name="camera_permission_denied">Нет доступа к камере</string>
+    <string name="open_settings">Настройки</string>
+    <string name="take_photo">Сделать фото</string>
+    <string name="choose_from_gallery">Выбрать из галереи</string>
+    <string name="uploaded">Загружено</string>
+    <string name="upload_docs_required">Загрузите паспорт и права</string>
+    <string name="profile_photo">Фото профиля</string>
+    <string name="passport_photo">Фото паспорта</string>
+    <string name="license_photo">Фото прав</string>
 </resources>

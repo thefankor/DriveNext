@@ -79,7 +79,7 @@
                 android:fontFamily="@font/montserrat_regular"
                 android:padding="0dp"
                 android:textSize="16sp"
-                android:textColor="@color/border"
+                android:textColor="@color/text"
                 android:textColorHint="@color/border" />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -132,7 +132,7 @@
                 android:fontFamily="@font/montserrat_regular"
                 android:textSize="16sp"
                 android:padding="0dp"
-                android:textColor="@color/border"
+                android:textColor="@color/text"
                 android:textColorHint="@color/border" />
 
         </com.google.android.material.textfield.TextInputLayout>

@@ -12,6 +12,7 @@ import androidx.lifecycle.repeatOnLifecycle
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.launch
 import ru.fnkr.drivenextapp.MainActivity
+import ru.fnkr.drivenextapp.common.utils.launchNoConnectionIfNeeded
 import ru.fnkr.drivenextapp.databinding.SignUp1Binding
 import ru.fnkr.drivenextapp.presentation.auth.common.SignUpData
 
@@ -49,6 +50,7 @@ class SignUp1Activity : AppCompatActivity() {
 
 
         binding.btnContinue.setOnClickListener {
+            launchNoConnectionIfNeeded()
             val email = binding.ilEditEmail.text?.toString().orEmpty()
             val pass1 = binding.ilEditPassword.text?.toString().orEmpty()
             val pass2 = binding.ilEditPasswordRepeat.text?.toString().orEmpty()
