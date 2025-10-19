@@ -30,15 +30,16 @@
         app:layout_constraintStart_toEndOf="@+id/imgBack"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
+    <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/imgProfile"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_width="128dp"
+        android:layout_height="128dp"
         android:layout_marginTop="20dp"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView13"
-        app:srcCompat="@drawable/profile" />
+        app:srcCompat="@drawable/profile"
+        app:shapeAppearanceOverlay="@style/CircleImage" />
 
     <ImageView
         android:id="@+id/imgProfilePlus"
@@ -178,8 +179,8 @@
             android:layout_height="wrap_content">
             <ImageView
                 android:id="@+id/ivLicense"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginStart="24dp"
                 app:srcCompat="@drawable/upload" />
@@ -217,8 +218,8 @@
             android:layout_height="wrap_content">
             <ImageView
                 android:id="@+id/ivPossport"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginStart="24dp"
                 app:srcCompat="@drawable/upload" />

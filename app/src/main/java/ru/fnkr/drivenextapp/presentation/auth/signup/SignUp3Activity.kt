@@ -6,6 +6,7 @@ import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.provider.Settings
+import android.widget.ImageView
 import androidx.activity.result.PickVisualMediaRequest
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
@@ -15,7 +16,6 @@ import androidx.core.content.FileProvider
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
-import com.bumptech.glide.Glide
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.launch
 import ru.fnkr.drivenextapp.R
@@ -33,14 +33,28 @@ class SignUp3Activity : AppCompatActivity() {
     private var data: SignUpData = SignUpData()
 
     private enum class DocType { PROFILE, PASSPORT, LICENSE }
+
     private var currentTarget: DocType? = null
+
+    // Временный URI для камеры.
     private var tempCameraUri: Uri? = null
 
+
+    private fun showImage(view: ImageView, uri: Uri) {
+        view.setImageURI(null)
+        view.setImageURI(uri)
+    }
+
+    /**
+     * Результат выбора изображения через Photo Picker (Android 13+).
+     * Возвращает content:// URI или null (если пользователь отменил выбор).
+     */
     private val pickImagePhoto =
         registerForActivityResult(ActivityResultContracts.PickVisualMedia()) { uri ->
             handleGalleryResult(uri)
         }
 
+    // Результат выбора изображения через SAF (Android 12-).
     private val pickImageOpenDoc =
         registerForActivityResult(ActivityResultContracts.OpenDocument()) { uri ->
             uri?.let {
@@ -51,24 +65,26 @@ class SignUp3Activity : AppCompatActivity() {
             handleGalleryResult(uri)
         }
 
-    private val takePicture = registerForActivityResult(ActivityResultContracts.TakePicture()) { ok ->
-        if (ok) {
-            handleCameraResult(tempCameraUri)
-        } else {
-            tempCameraUri = null
+    private val takePicture =
+        registerForActivityResult(ActivityResultContracts.TakePicture()) { ok ->
+            if (ok) {
+                handleCameraResult(tempCameraUri)
+            } else {
+                tempCameraUri = null
+            }
         }
-    }
 
-    private val requestCameraPermission = registerForActivityResult(ActivityResultContracts.RequestPermission()) { granted ->
-        if (granted) openCameraForCurrentTarget() else {
-            Snackbar.make(binding.root, R.string.camera_permission_denied, Snackbar.LENGTH_LONG)
-                .setAction(R.string.open_settings) {
-                    startActivity(Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS).apply {
-                        data = Uri.parse("package:$packageName")
-                    })
-                }.show()
+    private val requestCameraPermission =
+        registerForActivityResult(ActivityResultContracts.RequestPermission()) { granted ->
+            if (granted) openCameraForCurrentTarget() else {
+                Snackbar.make(binding.root, R.string.camera_permission_denied, Snackbar.LENGTH_LONG)
+                    .setAction(R.string.open_settings) {
+                        startActivity(Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS).apply {
+                            data = Uri.parse("package:$packageName")
+                        })
+                    }.show()
+            }
         }
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -115,7 +131,6 @@ class SignUp3Activity : AppCompatActivity() {
             vm.submitThird(licenseNumber, licenseDate)
         }
 
-
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
                 vm.ui3.collect { s ->
@@ -138,13 +153,8 @@ class SignUp3Activity : AppCompatActivity() {
             }
         }
 
-        binding.ilDate.setStartIconOnClickListener {
-            showDatePicker()
-        }
-
-        binding.ilEditDate.setOnClickListener {
-            showDatePicker()
-        }
+        binding.ilDate.setStartIconOnClickListener { showDatePicker() }
+        binding.ilEditDate.setOnClickListener { showDatePicker() }
     }
 
     private fun showDatePicker() {
@@ -164,8 +174,6 @@ class SignUp3Activity : AppCompatActivity() {
         datePicker.show()
     }
 
-    /** ----- Helpers ----- */
-
     private fun chooseSource(target: DocType) {
         currentTarget = target
         val items = arrayOf(getString(R.string.take_photo), getString(R.string.choose_from_gallery))
@@ -184,12 +192,10 @@ class SignUp3Activity : AppCompatActivity() {
                 }
             }
             .show()
-
     }
 
     private fun openGalleryForCurrentTarget() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-            // Импортируй PickVisualMediaRequest!
             pickImagePhoto.launch(
                 PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.ImageOnly)
             )
@@ -199,11 +205,12 @@ class SignUp3Activity : AppCompatActivity() {
     }
 
     private fun openCameraForCurrentTarget() {
-        // На части устройств без явного разрешения камера Intent не откроется
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M ||
-            checkSelfPermission(android.Manifest.permission.CAMERA) == android.content.pm.PackageManager.PERMISSION_GRANTED
+            checkSelfPermission(android.Manifest.permission.CAMERA) ==
+            android.content.pm.PackageManager.PERMISSION_GRANTED
         ) {
-            val uri = createImageUri("${currentTarget?.name?.lowercase()}_${System.currentTimeMillis()}.jpg")
+            val uri =
+                createImageUri("${currentTarget?.name?.lowercase()}_${System.currentTimeMillis()}.jpg")
             tempCameraUri = uri
             takePicture.launch(uri)
         } else {
@@ -212,7 +219,6 @@ class SignUp3Activity : AppCompatActivity() {
     }
 
     private fun createImageUri(fileName: String): Uri {
-        // сохраняем в app-specific Pictures (видно только твоему приложению)
         val imagesDir = getExternalFilesDir(android.os.Environment.DIRECTORY_PICTURES)
             ?: filesDir
         val imageFile = File(imagesDir, fileName)
@@ -224,16 +230,16 @@ class SignUp3Activity : AppCompatActivity() {
         when (currentTarget) {
             DocType.PROFILE -> {
                 data = data.copy(profilePhotoUri = uri.toString())
-                Glide.with(this).load(uri).into(binding.imgProfile)
+                showImage(binding.imgProfile, uri)
             }
             DocType.PASSPORT -> {
                 data = data.copy(passportPhotoUri = uri.toString())
-                Glide.with(this).load(uri).into(binding.ivPossport)
+                showImage(binding.ivPossport, uri)
                 binding.tvUploadPassport.text = getString(R.string.uploaded)
             }
             DocType.LICENSE -> {
                 data = data.copy(licensePhotoUri = uri.toString())
-                Glide.with(this).load(uri).into(binding.ivLicense)
+                showImage(binding.ivLicense, uri)
                 binding.tvUploadLicense.text = getString(R.string.uploaded)
             }
             else -> Unit
@@ -245,16 +251,16 @@ class SignUp3Activity : AppCompatActivity() {
         when (currentTarget) {
             DocType.PROFILE -> {
                 data = data.copy(profilePhotoUri = uri.toString())
-                Glide.with(this).load(uri).into(binding.imgProfile)
+                showImage(binding.imgProfile, uri)
             }
             DocType.PASSPORT -> {
                 data = data.copy(passportPhotoUri = uri.toString())
-                Glide.with(this).load(uri).into(binding.ivPossport)
+                showImage(binding.ivPossport, uri)
                 binding.tvUploadPassport.text = getString(R.string.uploaded)
             }
             DocType.LICENSE -> {
                 data = data.copy(licensePhotoUri = uri.toString())
-                Glide.with(this).load(uri).into(binding.ivLicense)
+                showImage(binding.ivLicense, uri)
                 binding.tvUploadLicense.text = getString(R.string.uploaded)
             }
             else -> Unit
@@ -264,14 +270,14 @@ class SignUp3Activity : AppCompatActivity() {
 
     private fun restoreImagesFromData() {
         data.profilePhotoUri?.let {
-            Glide.with(this).load(Uri.parse(it)).into(binding.imgProfile)
+            showImage(binding.imgProfile, Uri.parse(it))
         }
         data.passportPhotoUri?.let {
-            Glide.with(this).load(Uri.parse(it)).into(binding.ivPossport)
+            showImage(binding.ivPossport, Uri.parse(it))
             binding.tvUploadPassport.text = getString(R.string.uploaded)
         }
         data.licensePhotoUri?.let {
-            Glide.with(this).load(Uri.parse(it)).into(binding.ivLicense)
+            showImage(binding.ivLicense, Uri.parse(it))
             binding.tvUploadLicense.text = getString(R.string.uploaded)
         }
     }
