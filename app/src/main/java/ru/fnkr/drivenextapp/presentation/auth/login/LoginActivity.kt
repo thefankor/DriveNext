@@ -13,6 +13,7 @@ import ru.fnkr.drivenextapp.MainActivity
 import ru.fnkr.drivenextapp.common.utils.launchNoConnectionIfNeeded
 import ru.fnkr.drivenextapp.presentation.auth.signup.SignUp1Activity
 import ru.fnkr.drivenextapp.databinding.ActivityLoginBinding
+import ru.fnkr.drivenextapp.presentation.profile.ProfileActivity
 
 class LoginActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLoginBinding
@@ -46,7 +47,7 @@ class LoginActivity : AppCompatActivity() {
                     }
 
                     if (s.isAuthorized) {
-                        startActivity(Intent(this@LoginActivity, MainActivity::class.java))
+                        startActivity(Intent(this@LoginActivity, ProfileActivity::class.java))
                         finish()
                     }
                 }

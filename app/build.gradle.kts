@@ -2,7 +2,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
-    id("org.jetbrains.kotlin.kapt")
+    id("org.jetbrains.kotlin.plugin.serialization") version libs.versions.kotlin.get()
 }
 
 android {
@@ -58,9 +58,21 @@ dependencies {
     implementation(libs.androidx.compose.ui.graphics)
     implementation(libs.androidx.compose.ui.tooling.preview)
     implementation(libs.androidx.compose.material3)
+    implementation("io.github.jan-tennert.supabase:gotrue-kt:2.5.3")     // Аутентификация
+    implementation("io.github.jan-tennert.supabase:postgrest-kt:2.5.3")  // Работа с базой данных
+    implementation("io.github.jan-tennert.supabase:storage-kt:2.5.3")    // Supabase Storage
+    implementation("io.github.jan-tennert.supabase:realtime-kt:2.5.3")   // Реалтайм
+    implementation("io.github.jan-tennert.supabase:functions-kt:2.5.3")  // Edge Functions
 
-    implementation("com.github.bumptech.glide:glide:4.16.0")
-    kapt("com.github.bumptech.glide:compiler:4.16.0")
+    val ktor2 = "2.3.12"
+    implementation("io.ktor:ktor-client-android:$ktor2")                 // <-- engine
+    // или: implementation("io.ktor:ktor-client-okhttp:$ktor2")          // <-- альтернативный engine
+
+    implementation("io.ktor:ktor-client-content-negotiation:$ktor2")
+    implementation("io.ktor:ktor-serialization-kotlinx-json:$ktor2")
+
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.3")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.9.0")
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

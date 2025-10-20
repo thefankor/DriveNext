@@ -10,6 +10,12 @@ class SignInUseCase(private val repo: AuthRepository) {
 }
 
 
+class SignUpUseCase(private val repo: AuthRepository) {
+    suspend operator fun invoke(email: String, password: String): AppResult<User> =
+        repo.signUp(email, password)
+}
+
+
 class SignUpCheckExistUseCase(private val repo: AuthRepository) {
     suspend operator fun invoke(email: String): AppResult<User> =
         repo.checkUserExists(email)

@@ -1,10 +1,11 @@
 package ru.fnkr.drivenextapp.presentation.auth.signup
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 
 import ru.fnkr.drivenextapp.databinding.SignUpSuccessBinding
-import ru.fnkr.drivenextapp.common.utils.launchNoConnectionIfNeeded
+import ru.fnkr.drivenextapp.presentation.profile.ProfileActivity
 
 class SignUpSuccessActivity : AppCompatActivity() {
     private lateinit var binding: SignUpSuccessBinding
@@ -15,9 +16,8 @@ class SignUpSuccessActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.btnContinue.setOnClickListener {
-//            val intent = Intent(this@SignUpSuccessActivity, MainActivity::class.java)
-//            startActivity(intent)
-            launchNoConnectionIfNeeded()
+            startActivity(Intent(this@SignUpSuccessActivity, ProfileActivity::class.java))
+            finish()
         }
     }
 }

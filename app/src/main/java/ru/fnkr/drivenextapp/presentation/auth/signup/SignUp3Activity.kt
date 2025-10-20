@@ -128,7 +128,7 @@ class SignUp3Activity : AppCompatActivity() {
             val licenseNumber = binding.ilEditLicense.text?.toString().orEmpty()
             val licenseDate = binding.ilEditDate.text?.toString().orEmpty()
 
-            vm.submitThird(licenseNumber, licenseDate)
+            vm.submitThird(licenseNumber, licenseDate, data.email.orEmpty(), data.password.orEmpty())
         }
 
         lifecycleScope.launch {
