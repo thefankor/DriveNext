@@ -31,25 +31,6 @@ class AuthRepositoryImpl : AuthRepository {
         }
     }
 
-//    override suspend fun signIn(email: String, password: String): AppResult<User> {
-//        return try {
-//            val user = supabase.auth.signInWith(Email) {
-//                this.email = email
-//                this.password = password
-//            }
-//
-//            if (user != null) {
-//                AppResult.Ok(User(id = user.id, email = user.email ?: email))
-//            } else {
-//                AppResult.Err("Ошибка входа: пользователь не найден")
-//            }
-//
-//        } catch (e: Exception) {
-//            AppResult.Err(e.message ?: "Ошибка подключения к серверу")
-//        }
-//    }
-
-    // регистрация (если понадобится)
     override suspend fun signUp(email: String, password: String): AppResult<User> {
         return try {
             supabase.auth.signUpWith(Email) {
