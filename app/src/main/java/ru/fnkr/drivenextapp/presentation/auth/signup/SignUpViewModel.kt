@@ -17,16 +17,16 @@ import ru.fnkr.drivenextapp.domain.usecase.ValidateSignUpThirdFields
 import ru.fnkr.drivenextapp.presentation.auth.SignUpSecondUiState
 import ru.fnkr.drivenextapp.presentation.auth.SignUpThirdUiState
 import ru.fnkr.drivenextapp.presentation.auth.SignUpUiState
+import ru.fnkr.drivenextapp.presentation.auth.common.SignUpData
 
 class SignUpViewModel : ViewModel() {
 
     private val validate = ValidateSignUpFields()
     private val validate_second = ValidateSignUpSecondFields()
     private val validate_third = ValidateSignUpThirdFields()
-    private val repo = AuthRepositoryImpl()
 
-    private val signUp = SignUpUseCase(repo)
-    private val checkEmail = SignUpCheckExistUseCase(repo)
+    private val signUp = SignUpUseCase()
+    private val checkEmail = SignUpCheckExistUseCase()
 
     private val _ui1 = MutableStateFlow(SignUpUiState())
     private val _ui2 = MutableStateFlow(SignUpSecondUiState())
@@ -81,7 +81,7 @@ class SignUpViewModel : ViewModel() {
         }
     }
 
-    fun submitThird(licenseNumber: String, licenseDate: String, email: String, password: String) {
+    fun submitThird(licenseNumber: String, licenseDate: String, data: SignUpData) {
         val result = validate_third(licenseNumber, licenseDate)
         if (!result.valid) {
             _ui3.update {
@@ -95,7 +95,7 @@ class SignUpViewModel : ViewModel() {
 
         viewModelScope.launch {
 
-            when (val res = signUp(email, password)) {
+            when (val res = signUp(data.email.orEmpty(), data.password.orEmpty(), data)) {
                 is AppResult.Ok ->
                     _ui3.update { it.copy(isLoading = false, isAuthorized = true) }
 

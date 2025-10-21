@@ -36,6 +36,9 @@ class ProfileActivity : AppCompatActivity() {
 
                     binding.tvUserID.text = state.id ?: "—"
                     binding.tvEmail.text = state.email ?: "—"
+                    binding.tvFirstName.text = state.firstName ?: "—"
+                    binding.tvLastName.text = state.lastName ?: "—"
+                    binding.tvGender.text = state.gender ?: "—"
 
                 }
             }

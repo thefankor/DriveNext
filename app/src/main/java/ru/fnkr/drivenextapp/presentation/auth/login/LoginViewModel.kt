@@ -15,8 +15,7 @@ import ru.fnkr.drivenextapp.presentation.auth.AuthUiState
 class LoginViewModel : ViewModel() {
 
     private val validate = ValidateLoginFields()
-    private val repo = AuthRepositoryImpl()
-    private val signIn = SignInUseCase(repo)
+    private val signIn = SignInUseCase()
 
     private val _ui = MutableStateFlow(AuthUiState())
     val ui: StateFlow<AuthUiState> = _ui

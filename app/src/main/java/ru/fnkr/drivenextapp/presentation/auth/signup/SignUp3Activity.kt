@@ -128,7 +128,12 @@ class SignUp3Activity : AppCompatActivity() {
             val licenseNumber = binding.ilEditLicense.text?.toString().orEmpty()
             val licenseDate = binding.ilEditDate.text?.toString().orEmpty()
 
-            vm.submitThird(licenseNumber, licenseDate, data.email.orEmpty(), data.password.orEmpty())
+            data = data.copy(
+                licenseNumber = binding.ilEditLicense.text?.toString(),
+                licenseDate = binding.ilEditDate.text?.toString(),
+            )
+
+            vm.submitThird(licenseNumber, licenseDate, data)
         }
 
         lifecycleScope.launch {
@@ -137,8 +142,10 @@ class SignUp3Activity : AppCompatActivity() {
                     binding.ilLicense.error = s.licenseNumberError
                     binding.ilDate.error = s.licenseDateError
 
-                    if (s.generalError != null)
+                    if (s.generalError != null) {
+                        println(s.generalError)
                         Snackbar.make(binding.root, s.generalError, Snackbar.LENGTH_SHORT).show()
+                    }
 
                     if (s.isAuthorized) {
                         data = data.copy(
