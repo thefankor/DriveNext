@@ -17,6 +17,7 @@ data class ProfileUiState(
     val firstName: String? = null,
     val lastName: String? = null,
     val gender: String? = null,
+    val logo: String? = null,
     val error: String? = null
 )
 
@@ -47,6 +48,7 @@ class ProfileViewModel(): ViewModel() {
                                     firstName=profile.firstName,
                                     lastName=profile.lastName,
                                     gender=profile.gender,
+                                    logo=profile.logo,
                                 )
 
                             }

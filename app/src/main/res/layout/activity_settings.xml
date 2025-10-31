@@ -27,7 +27,7 @@
         app:layout_constraintTop_toBottomOf="@+id/tvSettingsTitle"
         android:layout_marginTop="10dp">
 
-        <ImageView
+        <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/ivUserSettings"
             android:layout_width="70dp"
             android:layout_height="70dp"
@@ -35,7 +35,8 @@
             android:layout_marginTop="20dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_user_settings" />
+            app:srcCompat="@drawable/ic_user_settings"
+            app:shapeAppearanceOverlay="@style/CircleImage"/>
 
         <TextView
             android:id="@+id/tvName"
@@ -260,8 +261,19 @@
     </LinearLayout>
 
 
-    <include
-        android:id="@+id/bottom_menu"
-        layout="@layout/include_bottom_nav" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/bottomContainer"
+        android:layout_width="0dp"
+        android:layout_height="80dp"
+        android:background="@color/white"
+        android:elevation="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <!-- сюда вливаются дети из include_bottom_nav.xml (корень <merge>) -->
+        <include
+            layout="@layout/include_bottom_nav"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

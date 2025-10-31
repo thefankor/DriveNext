@@ -5,7 +5,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 
 import ru.fnkr.drivenextapp.databinding.SignUpSuccessBinding
-import ru.fnkr.drivenextapp.presentation.profile.ProfileActivity
+import ru.fnkr.drivenextapp.presentation.home.HomeActivity
 
 class SignUpSuccessActivity : AppCompatActivity() {
     private lateinit var binding: SignUpSuccessBinding
@@ -16,7 +16,7 @@ class SignUpSuccessActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.btnContinue.setOnClickListener {
-            startActivity(Intent(this@SignUpSuccessActivity, ProfileActivity::class.java))
+            startActivity(Intent(this@SignUpSuccessActivity, HomeActivity::class.java))
             finish()
         }
     }

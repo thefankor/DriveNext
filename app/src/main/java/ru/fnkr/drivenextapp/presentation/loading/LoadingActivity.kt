@@ -13,6 +13,7 @@ import ru.fnkr.drivenextapp.MainActivity
 import ru.fnkr.drivenextapp.OnboardingActivity
 import ru.fnkr.drivenextapp.databinding.LoadingBinding
 import ru.fnkr.drivenextapp.presentation.profile.ProfileActivity
+import ru.fnkr.drivenextapp.presentation.profile.SettingsActivity
 import kotlin.getValue
 
 class LoadingActivity : AppCompatActivity() {
@@ -31,7 +32,7 @@ class LoadingActivity : AppCompatActivity() {
                 vm.route.collect { route ->
                     when (route?.type) {
                         RouteType.PROFILE -> {
-                            startActivity(Intent(this@LoadingActivity, ProfileActivity::class.java))
+                            startActivity(Intent(this@LoadingActivity, SettingsActivity::class.java))
                             finish()
                         }
 

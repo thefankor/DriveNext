@@ -16,6 +16,21 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DriveNextApp">
         <activity
+            android:name=".presentation.profile.SettingsActivity"
+            android:exported="false"
+            android:label="@string/title_activity_settings"
+            android:theme="@style/Theme.DriveNextApp" />
+        <activity
+            android:name=".presentation.home.SearchActivity"
+            android:exported="false"
+            android:label="@string/title_activity_search"
+            android:theme="@style/Theme.DriveNextApp" />
+        <activity
+            android:name=".presentation.home.SearchLoadingActivity"
+            android:exported="false"
+            android:label="@string/title_activity_search"
+            android:theme="@style/Theme.DriveNextApp" />
+        <activity
             android:name=".presentation.home.HomeActivity"
             android:exported="false"
             android:label="@string/title_activity_home"

@@ -10,21 +10,20 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import kotlinx.coroutines.launch
-import ru.fnkr.drivenextapp.MainActivity
 import ru.fnkr.drivenextapp.R
-import ru.fnkr.drivenextapp.databinding.ActivityUserProfileBinding
+import ru.fnkr.drivenextapp.databinding.ActivitySettingsBinding
 import ru.fnkr.drivenextapp.presentation.auth.login.LoginActivity
 import ru.fnkr.drivenextapp.presentation.home.HomeActivity
 import kotlin.getValue
 
-class ProfileActivity : AppCompatActivity() {
+class SettingsActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityUserProfileBinding
+    private lateinit var binding: ActivitySettingsBinding
     private val vm: ProfileViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityUserProfileBinding.inflate(layoutInflater)
+        binding = ActivitySettingsBinding.inflate(layoutInflater)
         val home = binding.bottomContainer.findViewById<ImageView>(R.id.home)
         val settings = binding.bottomContainer.findViewById<ImageView>(R.id.settings)
 
@@ -33,47 +32,34 @@ class ProfileActivity : AppCompatActivity() {
         vm.get_user()
 
         home.setOnClickListener {
-            startActivity(Intent(this@ProfileActivity, HomeActivity::class.java))
+            startActivity(Intent(this@SettingsActivity, HomeActivity::class.java))
         }
 
-        settings.setOnClickListener {
-            startActivity(Intent(this@ProfileActivity, SettingsActivity::class.java))
+        binding.profile.setOnClickListener {
+            startActivity(Intent(this@SettingsActivity, ProfileActivity::class.java))
         }
 
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
                 vm.ui.collect { state ->
                     if (!state.authorized) {
-                        startActivity(Intent(this@ProfileActivity, LoginActivity::class.java))
+                        startActivity(Intent(this@SettingsActivity, LoginActivity::class.java))
                         finish()
                         return@collect
                     }
 
-//                    binding.tvUserID.text = state.id ?: "—"
                     val logo = state.logo
                     if (!logo.isNullOrBlank()) {
-                        binding.ivLogo.setImageURI(Uri.parse(logo))
+                        binding.ivUserSettings.setImageURI(Uri.parse(logo))
                     }
 
                     binding.tvEmail.text = state.email ?: "—"
-                    binding.tvGoogleEmail.text = state.email ?: "—"
                     binding.tvName.text = state.firstName ?: "—"
-                    var genderStr = state.gender ?: "—"
-                    if (genderStr == "male") {
-                        binding.tvGender.text = "Мужской"
-                    } else {
-                        binding.tvGender.text = "Женский"
-                    }
 
 
                 }
             }
         }
 
-        binding.llLogout.setOnClickListener {
-            vm.user_logout()
-            startActivity(Intent(this@ProfileActivity, MainActivity::class.java))
-            finish()
-        }
     }
 }

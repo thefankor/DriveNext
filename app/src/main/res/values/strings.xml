@@ -107,4 +107,6 @@
     <string name="title_activity_home">HomeActivity</string>
     <string name="search_results">Результаты поиска</string>
     <string name="find_cars">Ищем подходящие автомобили</string>
+    <string name="title_activity_search">SearchActivity</string>
+    <string name="title_activity_settings">SettingsActivity</string>
 </resources>
