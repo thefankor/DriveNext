@@ -8,15 +8,23 @@ import ru.fnkr.drivenextapp.R
 import ru.fnkr.drivenextapp.databinding.CardItemBinding
 import ru.fnkr.drivenextapp.domain.model.Car
 
+import coil.load
+
 class CarAdapter: RecyclerView.Adapter<CarAdapter.CarHolder>() {
     var carList = ArrayList<Car>()
     class CarHolder(item: View): RecyclerView.ViewHolder(item) {
         val binding = CardItemBinding.bind(item)
         fun bind(car: Car) {
-//            binding.ivPreview.setImageResource()
+            binding.ivPreview.load(car.imgUrl) {
+                placeholder(R.drawable.mers)
+                error(R.drawable.mers)
+                crossfade(true)
+            }
             binding.tvCardBrand.text = car.brand
             binding.tvCardModel.text = car.model
-
+            binding.tvPrice.text = car.price.toString()
+            binding.tvGearbox.text = car.gearbox
+            binding.tvFuel.text = car.fuel
         }
     }
 
