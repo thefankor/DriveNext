@@ -16,6 +16,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DriveNextApp">
         <activity
+            android:name=".presentation.home.HomeActivity"
+            android:exported="false"
+            android:label="@string/title_activity_home"
+            android:theme="@style/Theme.DriveNextApp" />
+        <activity
+            android:name=".presentation.profile.AppActivity"
+            android:exported="false"
+            android:label="@string/title_activity_app" />
+        <activity
             android:name=".presentation.profile.ProfileActivity"
             android:exported="false"
             android:label="@string/title_activity_profile"

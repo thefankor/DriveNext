@@ -8,6 +8,7 @@ import ru.fnkr.drivenextapp.common.utils.launchNoConnectionIfNeeded
 import ru.fnkr.drivenextapp.databinding.ActivityGettingStartedBinding
 import ru.fnkr.drivenextapp.presentation.auth.login.LoginActivity
 import ru.fnkr.drivenextapp.presentation.auth.signup.SignUp1Activity
+import ru.fnkr.drivenextapp.presentation.home.HomeActivity
 
 
 class MainActivity : AppCompatActivity() {
@@ -21,7 +22,7 @@ class MainActivity : AppCompatActivity() {
 
         binding.btnSignIn.setOnClickListener {
             launchNoConnectionIfNeeded()
-            val intent = Intent(this@MainActivity, LoginActivity::class.java)
+            val intent = Intent(this@MainActivity, HomeActivity::class.java)
             startActivity(intent)
         }
 

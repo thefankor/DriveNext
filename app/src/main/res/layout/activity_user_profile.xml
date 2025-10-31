@@ -1,0 +1,359 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <TextView
+        android:id="@+id/tvProfileTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/profile"
+        android:layout_marginTop="40dp"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:fontFamily="@font/montserrat_semibold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <ImageView
+        android:id="@+id/ivLogo"
+        android:layout_width="96dp"
+        android:layout_height="96dp"
+        android:layout_marginTop="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvProfileTitle"
+        app:srcCompat="@drawable/ic_user_settings" />
+
+    <ImageView
+        android:id="@+id/ivPlus"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        app:srcCompat="@drawable/profile_plus"
+        app:layout_constraintEnd_toEndOf="@+id/ivLogo"
+        app:layout_constraintBottom_toBottomOf="@+id/ivLogo" />
+
+    <TextView
+        android:id="@+id/tvName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Иван Иванов"
+        android:fontFamily="@font/montserrat_semibold"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:layout_marginTop="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivLogo" />
+
+    <TextView
+        android:id="@+id/tvJoinDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Присоединился в июле 2024"
+        android:fontFamily="@font/montserrat_regular"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        android:layout_marginTop="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvName" />
+
+    <LinearLayout
+        android:id="@+id/llInfo"
+        app:layout_constraintTop_toBottomOf="@+id/tvJoinDate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_marginHorizontal="24dp"
+            android:layout_marginVertical="8dp"
+            android:id="@+id/llEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvEmail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/email"
+                android:fontFamily="@font/montserrat_medium"
+                android:textColor="@color/black" />
+            <TextView
+                android:id="@+id/tvEmailDescription"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ivanov@mtuci.ru"
+                android:textColor="@color/label"
+                android:textSize="12sp"
+                android:fontFamily="@font/montserrat_regular" />
+
+            <View
+                android:id="@+id/vEmailLine"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/light_grey"
+                android:layout_marginTop="15dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginHorizontal="24dp"
+            android:layout_marginVertical="8dp"
+            android:id="@+id/llPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvPassword"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/password"
+                android:fontFamily="@font/montserrat_medium"
+                android:textColor="@color/black" />
+            <TextView
+                android:id="@+id/tvPasswordDescription"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/change_password"
+                android:textColor="@color/label"
+                android:textSize="12sp"
+                android:fontFamily="@font/montserrat_regular" />
+
+            <View
+                android:id="@+id/vPasswordLine"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/light_grey"
+                android:layout_marginTop="15dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginHorizontal="24dp"
+            android:layout_marginVertical="8dp"
+            android:id="@+id/llGender"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvGender"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/sex"
+                android:fontFamily="@font/montserrat_medium"
+                android:textColor="@color/black" />
+            <TextView
+                android:id="@+id/tvGenderDescription"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Мужской"
+                android:textColor="@color/label"
+                android:textSize="12sp"
+                android:fontFamily="@font/montserrat_regular" />
+
+            <View
+                android:id="@+id/vGenderLine"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/light_grey"
+                android:layout_marginTop="15dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginHorizontal="24dp"
+            android:layout_marginVertical="8dp"
+            android:id="@+id/llGoogle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvGoogle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/google"
+                android:fontFamily="@font/montserrat_medium"
+                android:textColor="@color/black" />
+            <TextView
+                android:id="@+id/tvGoogleDescription"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ivanov@mtuci.ru"
+                android:textColor="@color/label"
+                android:textSize="12sp"
+                android:fontFamily="@font/montserrat_regular" />
+
+            <View
+                android:id="@+id/vGoogleLine"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/light_grey"
+                android:layout_marginTop="15dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginHorizontal="24dp"
+            android:layout_marginVertical="8dp"
+            android:id="@+id/llLogout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvLogout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/logout"
+                android:fontFamily="@font/montserrat_medium"
+                android:textColor="@color/black" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+
+
+<!--    <TextView-->
+<!--        android:id="@+id/textView38"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="@string/password"-->
+<!--        android:fontFamily="@font/montserrat_medium"-->
+<!--        android:layout_marginStart="20dp"-->
+<!--        android:layout_marginTop="20dp"-->
+<!--        android:textColor="@color/secondary"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/divider1" />-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/textView39"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="@string/change_password"-->
+<!--        android:layout_marginTop="5dp"-->
+<!--        android:layout_marginStart="20dp"-->
+<!--        android:textColor="@color/primary"-->
+<!--        android:fontFamily="@font/montserrat"-->
+<!--        android:textSize="12sp"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/textView38" />-->
+
+<!--    <View-->
+<!--        android:id="@+id/divider2"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="1dp"-->
+<!--        android:background="@color/line"-->
+<!--        android:layout_marginTop="15dp"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/textView39" />-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/textView40"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="@string/sex"-->
+<!--        android:fontFamily="@font/montserrat_medium"-->
+<!--        android:layout_marginStart="20dp"-->
+<!--        android:layout_marginTop="20dp"-->
+<!--        android:textColor="@color/secondary"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/divider2" />-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/textView41"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="Мужской"-->
+<!--        android:layout_marginTop="5dp"-->
+<!--        android:layout_marginStart="20dp"-->
+<!--        android:textColor="@color/label"-->
+<!--        android:fontFamily="@font/montserrat"-->
+<!--        android:textSize="12sp"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/textView40" />-->
+
+<!--    <View-->
+<!--        android:id="@+id/divider3"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="1dp"-->
+<!--        android:background="@color/line"-->
+<!--        android:layout_marginTop="15dp"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/textView41" />-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/textView42"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="@string/google"-->
+<!--        android:fontFamily="@font/montserrat_medium"-->
+<!--        android:layout_marginStart="20dp"-->
+<!--        android:layout_marginTop="20dp"-->
+<!--        android:textColor="@color/secondary"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/divider3" />-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/textView43"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="ivanov@gmail.com"-->
+<!--        android:layout_marginTop="5dp"-->
+<!--        android:layout_marginStart="20dp"-->
+<!--        android:textColor="@color/label"-->
+<!--        android:fontFamily="@font/montserrat"-->
+<!--        android:textSize="12sp"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/textView42" />-->
+
+<!--    <View-->
+<!--        android:id="@+id/divider4"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="1dp"-->
+<!--        android:background="@color/line"-->
+<!--        android:layout_marginTop="15dp"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/textView43" />-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/textView44"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="@string/logout"-->
+<!--        android:layout_marginTop="15dp"-->
+<!--        android:layout_marginStart="20dp"-->
+<!--        android:textColor="@color/black"-->
+<!--        android:textSize="14sp"-->
+<!--        android:fontFamily="@font/montserrat_medium"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/divider4" />-->
+
+<!--    <View-->
+<!--        android:id="@+id/topShadow"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="1dp"-->
+<!--        android:background="@color/line"-->
+<!--        android:layout_marginBottom="20dp"-->
+<!--        app:layout_constraintBottom_toTopOf="@+id/bookmark" />-->
+
+
+    <include
+        android:id="@+id/bottom_menu"
+        layout="@layout/include_bottom_nav" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

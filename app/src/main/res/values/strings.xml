@@ -86,4 +86,25 @@
     <string name="passport_photo">Фото паспорта</string>
     <string name="license_photo">Фото прав</string>
     <string name="title_activity_profile">ProfileActivity</string>
+    <string name="title_activity_app">AppActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="settings">Настройки</string>
+    <string name="my_bookings">Мои бронирования</string>
+    <string name="theme">Тема</string>
+    <string name="notify">Уведомления</string>
+    <string name="help">Помощь</string>
+    <string name="invite_friend">Пригласи друга</string>
+    <string name="profile">Профиль</string>
+    <string name="change_password">Поменять пароль</string>
+    <string name="google">Google</string>
+    <string name="logout">Выйти из профиля</string>
+    <string name="car_brand_placeholder">Введите марку автомобиля</string>
+    <string name="lets_find_car">Давайте найдем автомобиль</string>
+    <string name="get_booking">Забронировать</string>
+    <string name="details">Детали</string>
+    <string name="title_activity_home">HomeActivity</string>
+    <string name="search_results">Результаты поиска</string>
+    <string name="find_cars">Ищем подходящие автомобили</string>
 </resources>
