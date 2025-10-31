@@ -55,7 +55,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent">
 
-        <!-- сюда вливаются дети из include_bottom_nav.xml (корень <merge>) -->
         <include
             layout="@layout/include_bottom_nav"/>
     </androidx.constraintlayout.widget.ConstraintLayout>

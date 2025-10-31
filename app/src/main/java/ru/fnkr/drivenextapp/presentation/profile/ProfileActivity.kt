@@ -40,6 +40,16 @@ class ProfileActivity : AppCompatActivity() {
             startActivity(Intent(this@ProfileActivity, SettingsActivity::class.java))
         }
 
+        binding.llLogout.setOnClickListener {
+            vm.user_logout()
+            startActivity(Intent(this@ProfileActivity, MainActivity::class.java))
+            finish()
+        }
+
+        binding.llPassword.setOnClickListener {
+            startActivity(Intent(this@ProfileActivity, ChangePasswordActivity::class.java))
+        }
+
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
                 vm.ui.collect { state ->
@@ -68,12 +78,6 @@ class ProfileActivity : AppCompatActivity() {
 
                 }
             }
-        }
-
-        binding.llLogout.setOnClickListener {
-            vm.user_logout()
-            startActivity(Intent(this@ProfileActivity, MainActivity::class.java))
-            finish()
         }
     }
 }

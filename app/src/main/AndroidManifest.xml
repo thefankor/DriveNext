@@ -16,6 +16,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DriveNextApp">
         <activity
+            android:name=".presentation.profile.ChangePasswordSuccessActivity"
+            android:exported="false"
+            android:label="@string/title_activity_change_password_success"
+            android:theme="@style/Theme.DriveNextApp" />
+        <activity
+            android:name=".presentation.profile.ChangePasswordActivity"
+            android:exported="false"
+            android:label="@string/title_activity_change_password"
+            android:theme="@style/Theme.DriveNextApp" />
+        <activity
             android:name=".presentation.profile.SettingsActivity"
             android:exported="false"
             android:label="@string/title_activity_settings"
