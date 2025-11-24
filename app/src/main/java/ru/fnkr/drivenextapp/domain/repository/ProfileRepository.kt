@@ -9,4 +9,6 @@ interface ProfileRepository {
     suspend fun upsertMyProfile(p: Profile): AppResult<Unit>
 
     suspend fun getMyProfile(userId: String): AppResult<ProfileShort>
+
+    suspend fun changePassword(oldPassword: String, newPassword: String): AppResult<Unit>
 }

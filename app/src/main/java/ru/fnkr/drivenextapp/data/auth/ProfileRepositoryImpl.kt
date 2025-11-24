@@ -1,6 +1,7 @@
 package ru.fnkr.drivenextapp.data.auth
 
 import io.github.jan.supabase.gotrue.auth
+import io.github.jan.supabase.gotrue.providers.builtin.Email
 import io.github.jan.supabase.postgrest.from
 import ru.fnkr.drivenextapp.common.utils.AppResult
 import ru.fnkr.drivenextapp.data.supabase.SupabaseProvider
@@ -62,4 +63,34 @@ class ProfileRepositoryImpl : ProfileRepository {
     } catch (e: Exception) {
         AppResult.Err(e.message ?: "Ошибка получения профиля")
     }
+
+    override suspend fun changePassword(oldPassword: String, newPassword: String): AppResult<Unit> {
+        return try {
+            val user = supabase.auth.currentUserOrNull()
+            val email = user?.email
+
+            if (email == null) {
+                return AppResult.Err("Пользователь не авторизован")
+            }
+
+            runCatching {
+                supabase.auth.signInWith(Email) {
+                    this.email = email
+                    this.password = oldPassword
+                }
+            }.onFailure {
+                return AppResult.Err("Старый пароль неверный")
+            }
+
+            supabase.auth.updateUser {
+                password = newPassword
+            }
+
+            AppResult.Ok(Unit)
+
+        } catch (e: Exception) {
+            AppResult.Err(e.message ?: "Ошибка смены пароля")
+        }
+    }
+
 }
